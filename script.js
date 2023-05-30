@@ -19,9 +19,8 @@ class BookCollection {
     });
 
     Object.values(this.collection).forEach((field) => {
-      const html = `<div class="detailDiv"><p class="title">${field.title}</p>
-        <p class="author">${field.author}</p>
-        <button class="remove">Remove</button><hr></div>
+      const html = `<div class="detailDiv"><p class="title" data-title="${field.title}" data-author="${field.author}">"${field.title}" by ${field.author}</p>
+        <button class="remove">Remove</button></div>
         `;
       const prevHtml = document.getElementById('details').innerHTML;
       document.getElementById('details').innerHTML = html + prevHtml;
@@ -41,8 +40,9 @@ class BookCollection {
 
   removeBook(event) {
     const parentDiv = event.target.parentElement;
-    const title = parentDiv.querySelector('.title').textContent;
-    const author = parentDiv.querySelector('.author').textContent;
+    const titleSelector = parentDiv.querySelector('.title');
+    const title = titleSelector.getAttribute('data-title');
+    const author = titleSelector.getAttribute('data-author');
 
     parentDiv.remove();
     const collectionFilter = this.collection.filter(
@@ -54,9 +54,8 @@ class BookCollection {
 
   addBook(title, author) {
     this.collection.push({ title, author });
-    const html = `<div class="detailDiv"><p class="title">${title}</p>
-      <p class="author">${author}</p>
-      <button class="remove">Remove</button><hr></div>
+    const html = `<div class="detailDiv"><p class="title" data-title="${title}" data-author="${author}">"${title}" by ${author}</p>
+      <button class="remove">Remove</button></div>
       `;
     const prevHtml = document.getElementById('details').innerHTML;
     document.getElementById('details').innerHTML = html + prevHtml;
