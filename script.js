@@ -1,8 +1,15 @@
+const title = document.getElementById('title');
+const author = document.getElementById('author');
 const addBtn = document.getElementById('add');
+const errorMsg = document.getElementById('error');
+
+errorMsg.style.display = 'none';
 const collection = JSON.parse(localStorage.getItem('booksCollection')) || [];
 
 function updateBookData(collectionData) {
   localStorage.setItem('booksCollection', JSON.stringify(collectionData));
+  title.value = '';
+  author.value = '';
 }
 
 function removeBook(event) {
@@ -31,9 +38,13 @@ function addBooks(title, author) {
   });
 }
 addBtn.addEventListener('click', () => {
-  const title = document.getElementById('title').value;
-  const author = document.getElementById('author').value;
-  addBooks(title, author);
+  if (title.value === '' || author.value === '') {
+    errorMsg.style.display = 'block';
+    errorMsg.style.color = 'red';
+  } else {
+    errorMsg.style.display = 'none';
+    addBooks(title.value, author.value);
+  }
 });
 
 Object.values(collection).forEach((field) => {
