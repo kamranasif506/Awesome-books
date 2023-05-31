@@ -53,6 +53,9 @@ h1 {
 }
 
 .form-fields {
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
   max-width: 30%;
   margin: 20px auto;
 }
@@ -75,4 +78,8 @@ input[type="text"] {
 
 .add:hover {
   background-color: #cccccc;
+}
+
+.add {
+  margin-left: auto;
 }
