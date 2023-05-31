@@ -7,25 +7,30 @@ body {
 h1 {
   text-align: center;
 }
+
 #details {
   width: 50%;
   margin-left: auto;
   margin-right: auto;
   border: 4px solid black;
-    border-radius: 5px;
+  border-radius: 5px;
 }
+
 .detailDiv {
   border: 1px solid #ccc;
   padding: 10px;
   display: grid;
   grid-template-columns: 70% 30%;
 }
+
 #details > :nth-child(odd) {
   background-color: #ccc;
 }
+
 .form-title {
   text-align: center;
 }
+
 .title {
   font-weight: bold;
 }
@@ -34,7 +39,8 @@ h1 {
   margin-top: 5px;
 }
 
-.remove,.add {
+.remove,
+.add {
   border: none;
   padding: 5px 10px;
   font-size: 1rem;
@@ -43,13 +49,14 @@ h1 {
   border-radius: 3%;
   color: black;
 }
+
 #hr {
   width: 10%;
-  border-top: 5px solid #cccccc;
+  border-top: 5px solid #ccc;
 }
 
 .remove:hover {
-  background-color: #cccccc;
+  background-color: #ccc;
 }
 
 .form-fields {
@@ -64,7 +71,6 @@ input[type="text"] {
   width: 100%;
   padding: 5px;
   margin-bottom: 10px;
-  
   border: 3px solid black;
   border-radius: 3px;
 }
@@ -75,11 +81,10 @@ input[type="text"] {
   font-size: 12px;
 }
 
-
-.add:hover {
-  background-color: #cccccc;
-}
-
 .add {
   margin-left: auto;
+}
+
+.add:hover {
+  background-color: #ccc;
 }

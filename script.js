@@ -46,7 +46,7 @@ class BookCollection {
 
     parentDiv.remove();
     const collectionFilter = this.collection.filter(
-      (book) => book.title !== title || book.author !== author
+      (book) => book.title !== title || book.author !== author,
     );
     this.collection = collectionFilter;
     this.updateBookData(collectionFilter);
@@ -68,5 +68,4 @@ class BookCollection {
   }
 }
 
-// Create an instance of the BookCollection class
 const bookCollection = new BookCollection();
