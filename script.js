@@ -2,34 +2,10 @@ class BookCollection {
   constructor() {
     this.title = document.getElementById('title');
     this.author = document.getElementById('author');
-    this.addBtn = document.getElementById('add');
     this.errorMsg = document.getElementById('error');
     this.collection = JSON.parse(localStorage.getItem('booksCollection')) || [];
 
     this.errorMsg.style.display = 'none';
-
-    this.addBtn.addEventListener('click', () => {
-      if (this.title.value === '' || this.author.value === '') {
-        this.errorMsg.style.display = 'block';
-        this.errorMsg.style.color = 'red';
-      } else {
-        this.errorMsg.style.display = 'none';
-        this.addBook(this.title.value, this.author.value);
-      }
-    });
-
-    Object.values(this.collection).forEach((field) => {
-      const html = `<div class="detailDiv"><p class="title" data-title="${field.title}" data-author="${field.author}">"${field.title}" by ${field.author}</p>
-        <button class="remove">Remove</button></div>
-        `;
-      const prevHtml = document.getElementById('details').innerHTML;
-      document.getElementById('details').innerHTML = html + prevHtml;
-
-      const bookItems = document.querySelectorAll('.remove');
-      bookItems.forEach((bookItem) => {
-        bookItem.addEventListener('click', this.removeBook.bind(this));
-      });
-    });
   }
 
   updateBookData(collectionData) {
@@ -69,3 +45,14 @@ class BookCollection {
 }
 
 const bookCollection = new BookCollection();
+
+const addBtn = document.getElementById('add');
+addBtn.addEventListener('click', () => {
+  if (bookCollection.title.value === '' || bookCollection.author.value === '') {
+    bookCollection.errorMsg.style.display = 'block';
+    bookCollection.errorMsg.style.color = 'red';
+  } else {
+    bookCollection.errorMsg.style.display = 'none';
+    bookCollection.addBook(bookCollection.title.value, bookCollection.author.value);
+  }
+});
