@@ -1,9 +1,67 @@
+html,body {
+  height: 98%;
+  margin: 0;
+  padding: 0;
+}
 body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 20px;
+  display: flex;
+  flex-direction: column;
+
 }
 
+nav {
+  border: 4px solid black;
+}
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 70% auto auto;
+}
+
+nav ul li {
+  flex-grow: 1;
+  text-align: center;
+  display: flex; /* Add this line */
+  align-items: center; /* Add this line */
+  padding: 2%;
+  border-left: 3px solid black;
+  justify-content: center;
+ 
+}
+
+
+nav ul li.first-li {
+  text-align: left;
+  border-left: 0;
+}
+
+nav ul li a {
+  display: block;
+  text-decoration: none;
+  color: black;
+}
+
+nav ul li:first-child {
+  display: flex;
+  justify-content: flex-start;
+}
+nav ul li .first {
+  width: 90% !important;
+}
+nav ul li .active {
+  color: #0000ff;
+}
+.hide {
+  display: none;
+}
+.show {
+  display: block;
+}
 h1 {
   text-align: center;
 }
@@ -87,4 +145,23 @@ input[type="text"] {
 
 .add:hover {
   background-color: #ccc;
+}
+#contact {
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  max-width: 50%;
+  margin: 20px auto;
+}
+#contact .contact-info {
+  padding: 0;
+  margin: 0;
+}
+
+footer {
+  border: 4px solid black;
+  color: black;
+  padding: 20px;
+  margin-top: auto;
+  margin-bottom: 3%;
 }

@@ -9,22 +9,49 @@
     
 </head>
 <body>
-    <h1>Awesome Books</h1>
-    <div id="details">
-      
-    </div>
-    
-    <br>
-    <hr id="hr">
-    <br>
-    <div class="form-fields">
-        <h2 class="form-title">Add a new book</h2>
-        <input id="title" type="text" placeholder="Title">
+    <header>
+        <nav>
+            <ul>
+            <li class="first-li "><span class="first">Awesome Books</span><a href="#" class="active">Lists</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="book-lists show">
+            <h1>Awesome Books</h1>
+            <div id="details">
+            
+            </div>
+        </div>
+        <div class="hide" id="form-fields">
+            <div class="form-fields" >
+                <h1 class="form-title">Add a new book</h1>
+                <input id="title" type="text" placeholder="Title">
+                
+                <input id="author" type="text" placeholder="Author">
+                <span id="error">All fields are required</span>
+                <button type="button" class="add" id="add">Add</button>
+            </div>
+        </div>
+        <div id="contact-info" class="hide">
+            <div id="contact">
+                <h1 class="form-title">Contact Information</h1>
+                <p class="contact-info">Do have any questions or just want to say Hello?</p>
+                <p class="contact-info">You can reach out to us</p>
+                <ul>
+                    <li>Our email: kamranasif506@gmail.com</li>
+                    <li>Our phone number: +92300 4862070</li>
+                    <li>Our address: Streetname 22, 42000 Khushab, Pakistan</li>
+                </ul>
+            </div>   
+        </div>
         
-        <input id="author" type="text" placeholder="Author">
-        <span id="error">All fields are required</span>
-        <button type="button" class="add" id="add">Add</button>
-    </div>
+    </main>
+    <footer>
+        <p>This is the footer.</p>
+    </footer>
     <script src="script.js"></script>
 </body>
 </html>
