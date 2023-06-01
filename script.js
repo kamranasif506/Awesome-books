@@ -68,11 +68,38 @@ class BookCollection {
       bookItem.addEventListener('click', this.removeBook.bind(this));
     });
   }
+  navigateSection(key,item){
+    var activeItems = document.querySelectorAll('li.nav-items a.active');
+    var mainDivs = document.querySelectorAll('#main > div');
+    mainDivs.forEach(function(div) {
+      div.classList.add('hide');
+      div.classList.remove('show');
+    });
+    activeItems.forEach(function(listItem) {
+      listItem.classList.remove('active');
+    });
+    item.classList.add('active');
+    
+    var matchingDiv = document.getElementById(key);
+    if (matchingDiv) {
+      matchingDiv.classList.remove('hide');
+      matchingDiv.classList.add('show');
+    }
+    
+  }
 }
 
 const bookCollection = new BookCollection();
 bookCollection.showBookData();
 const addBtn = document.getElementById('add');
+const navItems = document.querySelectorAll('.nav-items');
+console.log(navItems);
+navItems.forEach((navItem) => {
+      navItem.addEventListener('click',function(event){
+        var target  =event.target.parentElement.getAttribute('data-target');
+        bookCollection.navigateSection(target,event.target);
+      });
+    });
 addBtn.addEventListener('click', () => {
   if (bookCollection.title.value === '' || bookCollection.author.value === '') {
     bookCollection.errorMsg.style.display = 'block';
