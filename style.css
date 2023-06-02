@@ -1,7 +1,96 @@
+html,
+body {
+  height: 97%;
+  margin: 0;
+  padding: 0;
+}
+
+#dateTime {
+  display: flex;
+  justify-content: end;
+}
+
 body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 5px;
+  background-color: #6b445b;
+  color: #fff;
+  font-weight: bolder;
+  box-shadow: 3px 3px 5px 2px #535153;
+  border-radius: 3px;
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0 8px;
+  display: flex;
+  gap: 15px;
+}
+
+nav ul li {
+  flex-grow: 1;
+  text-align: center;
+  display: flex; /* Add this line */
+  align-items: center; /* Add this line */
+  justify-content: center;
+}
+
+nav ul li.first-li {
+  text-align: left;
+  border-left: 0;
+}
+
+nav ul li a {
+  display: flex;
+  text-decoration: none;
+  color: black;
+}
+
+nav ul li a:hover {
+  padding: 8px 5px;
+  background-color: #6b445b;
+  color: #fff;
+  font-weight: bolder;
+  box-shadow: 3px 3px 5px 2px #535153;
+  border-radius: 3px;
+}
+
+nav ul li:first-child {
+  display: flex;
+  justify-content: flex-start;
+}
+
+nav ul li .first {
+  width: 90% !important;
+  background-color: transparent;
+}
+
+nav ul li .active {
+  padding: 8px 5px;
+  background-color: #6b445b;
+  color: #fff;
+  font-weight: bolder;
+  box-shadow: 3px 3px 5px 2px #535153;
+  border-radius: 3px;
+}
+
+.hide {
+  display: none;
+}
+
+.show {
+  display: block;
 }
 
 h1 {
@@ -87,4 +176,25 @@ input[type="text"] {
 
 .add:hover {
   background-color: #ccc;
+}
+
+#contact {
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  max-width: 40%;
+  margin: 20px auto;
+}
+
+#contact .contact-info {
+  padding: 0;
+  margin: 0;
+  font-size: 20px;
+}
+
+footer {
+  text-align: center;
+  border: 2px solid black;
+  color: black;
+  margin-top: auto;
 }

@@ -5,8 +5,9 @@ class BookCollection {
     this.errorMsg = document.getElementById('error');
     this.collection = JSON.parse(localStorage.getItem('booksCollection')) || [];
     this.detailsDiv = document.getElementById('details');
-
+    this.mainDivs = document.querySelectorAll('#main > div');
     this.errorMsg.style.display = 'none';
+    this.currentDate = new Date();
   }
 
   updateBookData(collectionData) {
@@ -68,11 +69,45 @@ class BookCollection {
       bookItem.addEventListener('click', this.removeBook.bind(this));
     });
   }
+
+  navigateSection(key, item) {
+    const activeItems = document.querySelectorAll('li.nav-items a.active');
+
+    this.mainDivs.forEach((div) => {
+      div.classList.add('hide');
+      div.classList.remove('show');
+    });
+    activeItems.forEach((listItem) => {
+      listItem.classList.remove('active');
+    });
+    item.classList.add('active');
+
+    const matchingDiv = document.getElementById(key);
+    if (matchingDiv) {
+      matchingDiv.classList.remove('hide');
+      matchingDiv.classList.add('show');
+    }
+  }
 }
 
 const bookCollection = new BookCollection();
 bookCollection.showBookData();
 const addBtn = document.getElementById('add');
+const navItems = document.querySelectorAll('.nav-items a');
+const dateTime = bookCollection.currentDate;
+const dateDiv = document.getElementById('dateTime');
+const options = {
+  month: 'long', day: 'numeric', year: 'numeric', hour: 'numeric', minute: 'numeric', hour12: true,
+};
+let datetimeString = dateTime.toLocaleString('en-US', options);
+datetimeString = datetimeString.replace(/,?\s*at\s*/, ', ');
+dateDiv.innerHTML = datetimeString;
+navItems.forEach((navItem) => {
+  navItem.addEventListener('click', (event) => {
+    const target = event.target.parentElement.getAttribute('data-target');
+    bookCollection.navigateSection(target, event.target);
+  });
+});
 addBtn.addEventListener('click', () => {
   if (bookCollection.title.value === '' || bookCollection.author.value === '') {
     bookCollection.errorMsg.style.display = 'block';
