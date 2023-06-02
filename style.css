@@ -5,6 +5,11 @@ body {
   padding: 0;
 }
 
+#dateTime {
+  display: flex;
+  justify-content: end;
+}
+
 body {
   font-family: Arial, sans-serif;
   margin: 0;
@@ -177,13 +182,14 @@ input[type="text"] {
   display: flex;
   flex-direction: column;
   justify-content: end;
-  max-width: 50%;
+  max-width: 40%;
   margin: 20px auto;
 }
 
 #contact .contact-info {
   padding: 0;
   margin: 0;
+  font-size: 20px;
 }
 
 footer {
