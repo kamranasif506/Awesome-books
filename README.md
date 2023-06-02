@@ -65,6 +65,8 @@
 - function to remove a book from the collection
 - Displayed all books saved in the collection at the top part of the page
 - Data preserved in localStorage.
+- Navigation Bar
+- 3 different section 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
