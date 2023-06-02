@@ -5,7 +5,7 @@ class BookCollection {
     this.errorMsg = document.getElementById('error');
     this.collection = JSON.parse(localStorage.getItem('booksCollection')) || [];
     this.detailsDiv = document.getElementById('details');
-
+    this.mainDivs = document.querySelectorAll('#main > div');
     this.errorMsg.style.display = 'none';
   }
 
@@ -68,38 +68,37 @@ class BookCollection {
       bookItem.addEventListener('click', this.removeBook.bind(this));
     });
   }
-  navigateSection(key,item){
-    var activeItems = document.querySelectorAll('li.nav-items a.active');
-    var mainDivs = document.querySelectorAll('#main > div');
-    mainDivs.forEach(function(div) {
+
+  navigateSection(key, item) {
+    const activeItems = document.querySelectorAll('li.nav-items a.active');
+
+    this.mainDivs.forEach((div) => {
       div.classList.add('hide');
       div.classList.remove('show');
     });
-    activeItems.forEach(function(listItem) {
+    activeItems.forEach((listItem) => {
       listItem.classList.remove('active');
     });
     item.classList.add('active');
-    
-    var matchingDiv = document.getElementById(key);
+
+    const matchingDiv = document.getElementById(key);
     if (matchingDiv) {
       matchingDiv.classList.remove('hide');
       matchingDiv.classList.add('show');
     }
-    
   }
 }
 
 const bookCollection = new BookCollection();
 bookCollection.showBookData();
 const addBtn = document.getElementById('add');
-const navItems = document.querySelectorAll('.nav-items');
-console.log(navItems);
+const navItems = document.querySelectorAll('.nav-items a');
 navItems.forEach((navItem) => {
-      navItem.addEventListener('click',function(event){
-        var target  =event.target.parentElement.getAttribute('data-target');
-        bookCollection.navigateSection(target,event.target);
-      });
-    });
+  navItem.addEventListener('click', (event) => {
+    const target = event.target.parentElement.getAttribute('data-target');
+    bookCollection.navigateSection(target, event.target);
+  });
+});
 addBtn.addEventListener('click', () => {
   if (bookCollection.title.value === '' || bookCollection.author.value === '') {
     bookCollection.errorMsg.style.display = 'block';
