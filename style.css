@@ -13,14 +13,22 @@ body {
 }
 
 nav {
-  border: 4px solid black;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 5px;
+  background-color: #6b445b;
+  color: #fff;
+  font-weight: bolder;
+  box-shadow: 3px 3px 5px 2px #535153;
+  border-radius: 3px;
 }
 nav ul {
   list-style-type: none;
   margin: 0;
-  padding: 0;
-  display: grid;
-  grid-template-columns: 70% auto auto;
+  padding: 0 8px;
+  display: flex;
+  gap: 15px;
 }
 
 nav ul li {
@@ -28,8 +36,6 @@ nav ul li {
   text-align: center;
   display: flex; /* Add this line */
   align-items: center; /* Add this line */
-  padding: 2%;
-  border-left: 3px solid black;
   justify-content: center;
  
 }
@@ -41,9 +47,18 @@ nav ul li.first-li {
 }
 
 nav ul li a {
-  display: block;
+  display: flex;
   text-decoration: none;
   color: black;
+}
+
+nav ul li a:hover {
+  padding: 8px 5px;
+  background-color: #6b445b;
+  color: #fff;
+  font-weight: bolder;
+  box-shadow: 3px 3px 5px 2px #535153;
+  border-radius: 3px;
 }
 
 nav ul li:first-child {
@@ -52,9 +67,15 @@ nav ul li:first-child {
 }
 nav ul li .first {
   width: 90% !important;
+  background-color: transparent;
 }
 nav ul li .active {
-  color: #0000ff;
+  padding: 8px 5px;
+  background-color: #6b445b;
+  color: #fff;
+  font-weight: bolder;
+  box-shadow: 3px 3px 5px 2px #535153;
+  border-radius: 3px;
 }
 .hide {
   display: none;
@@ -159,8 +180,8 @@ input[type="text"] {
 }
 
 footer {
+  text-align: center;
   border: 2px solid black;
   color: black;
-  padding-left: 1%;
   margin-top: auto;
 }
